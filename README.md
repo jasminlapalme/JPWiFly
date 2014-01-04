@@ -5,14 +5,14 @@ An Arduino library for the Roving Networks WiFly RN-XV.
 
 This library has been highly inspired by WiFlyHQ (https://github.com/harlequin-tech/WiFlyHQ). It has been updated to work with version 4.0x of the WiFly firmware.
 
-Features :
+##Features
 
 * connect to a WEP or WAP wireless network
 * create an access point (AP mode)
 * use NTP to get date and time
 * create and HTTP server
 
-Examples :
+##Examples
 
     #include <JPWiFly.h>
     
@@ -34,7 +34,7 @@ Examples :
     	if (wiFly.joinNetwork("network", "password"))
     		wiFly.setNTP();
     	else
-    		wiFly.createApModeNetwork("Termoeno");
+    		wiFly.createApModeNetwork("JPWiFly");
     
     	setTime( wiFly.getNtpTime() );
     	setSyncProvider( getNtpTime );
@@ -47,6 +47,7 @@ Examples :
     	KeyValue data;
     	if (wiFly.getConnection(method, url, data))
     	{
+    		// data contains key-value pairs of the http headers
     		if (url == "/")
     		{
     			wiFly.sendPage(F("<html><head><title>JPWiFly</title></head>"
